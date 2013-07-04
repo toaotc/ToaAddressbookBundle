@@ -2,7 +2,6 @@
 
 namespace Toa\Bundle\AddressbookBundle\Tests\Entity;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Toa\Bundle\AddressbookBundle\Entity\Birthday;
 use Toa\Bundle\AddressbookBundle\Entity\Contact;
 use Toa\Bundle\AddressbookBundle\Entity\Email;
@@ -16,7 +15,7 @@ use Toa\Bundle\AddressbookBundle\Entity\Url;
 /**
  * Class ContactTest
  */
-class ContactTest extends WebTestCase {
+class ContactTest extends \PHPUnit_Framework_TestCase {
     private $em;
 
     /** @var Contact $contact */
@@ -24,22 +23,7 @@ class ContactTest extends WebTestCase {
 
     public function setUp()
     {
-        static::$kernel = static::createKernel();
-        static::$kernel->boot();
-        $this->em = static::$kernel->getContainer()
-            ->get('doctrine')
-            ->getManager()
-        ;
         $this->contact = new Contact();
-
-    }
-
-    public function tearDown()
-    {
-        $this->em->remove($this->contact);
-        $this->em->flush();
-
-        parent::tearDown();
     }
 
     /**
@@ -85,39 +69,5 @@ class ContactTest extends WebTestCase {
             array('lastname', new Lastname()),
             array('birthday', new Birthday()),
         );
-    }
-
-    /**
-     * @depends testAdder
-     * @depends testSetter
-     */
-    public function testPersistance()
-    {
-        foreach ($this->adderFields() as $set) {
-            $adder = 'add'.ucfirst($set[0]);
-            $instance = $set[1];
-
-            if ($instance instanceof \Toa\Bundle\AddressbookBundle\Model\AbstractField) {
-                $instance->setValue('foo');
-            }
-
-            $this->contact->$adder($instance);
-        }
-        $this->em->persist($this->contact);
-        $this->em->flush();
-
-        $this->assertInternalType('integer', $this->contact->getId());
-
-        foreach ($this->setterFields() as $fieldConfig) {
-            $getter = 'get'.ucfirst($fieldConfig[0]);
-
-            $this->assertInternalType('integer', $this->contact->$getter()->getId());
-        }
-
-        foreach ($this->adderFields() as $fieldConfig) {
-            $getter = 'get'.ucfirst($fieldConfig[0]).'s';
-
-            $this->assertInternalType('integer', $this->contact->$getter()->first()->getId());
-        }
     }
 }
