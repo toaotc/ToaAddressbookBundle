@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity table="toa_addressbook_postaladdress" name="Toa\Bundle\AddressbookBundle\Entity\PostalAddress">
+
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+
+        <many-to-one field="contact" target-entity="Toa\Bundle\AddressbookBundle\Entity\Contact" inversed-by="postalAddresss">
+            <join-column nullable="false" />
+        </many-to-one>
+
+        <field name="street" type="string" nullable="true" />
+
+        <field name="postalCode" column="postal_code" type="string" nullable="true" length="10" />
+
+        <field name="city" type="string" nullable="true" />
+
+        <field name="country" type="string" nullable="true" />
+
+    </entity>
+
+</doctrine-mapping>

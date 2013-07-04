@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity table="toa_addressbook_contact" name="Toa\Bundle\AddressbookBundle\Entity\Contact">
+
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+
+        <one-to-one field="firstname" target-entity="Toa\Bundle\AddressbookBundle\Entity\Firstname">
+
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
+
+            <join-column nullable="false" />
+
+        </one-to-one>
+
+        <one-to-one field="secondname" target-entity="Toa\Bundle\AddressbookBundle\Entity\Secondname">
+
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
+
+            <join-column nullable="false" />
+
+        </one-to-one>
+
+        <one-to-one field="lastname" target-entity="Toa\Bundle\AddressbookBundle\Entity\Lastname">
+
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
+
+            <join-column nullable="false" />
+
+        </one-to-one>
+
+        <one-to-many field="emails" target-entity="Toa\Bundle\AddressbookBundle\Entity\Email" mapped-by="contact" orphan-removal="true">
+
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
+
+        </one-to-many>
+
+        <one-to-one field="birthday" target-entity="Toa\Bundle\AddressbookBundle\Entity\Birthday">
+
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
+
+            <join-column nullable="false" />
+
+        </one-to-one>
+
+        <one-to-many field="phoneNumbers" target-entity="Toa\Bundle\AddressbookBundle\Entity\PhoneNumber" mapped-by="contact" orphan-removal="true">
+
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
+
+        </one-to-many>
+
+        <one-to-many field="urls" target-entity="Toa\Bundle\AddressbookBundle\Entity\Url" mapped-by="contact" orphan-removal="true">
+
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
+
+        </one-to-many>
+
+        <one-to-many field="postalAddresss" target-entity="Toa\Bundle\AddressbookBundle\Entity\PostalAddress" mapped-by="contact" orphan-removal="true">
+
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
+
+        </one-to-many>
+
+    </entity>
+</doctrine-mapping>

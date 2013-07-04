@@ -1,0 +1,26 @@
+{
+    "name": "toa/addressbook-bundle",
+    "description": "Addressbook Bundle for Symfony2",
+    "keywords": ["code generation"],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "require": {
+        "practo/libphonenumber-for-php": "dev-master",
+        "symfony/framework-bundle": "~2.1"
+    },
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Enrico Thies",
+            "email": "enrico.thies@gmail.com"
+        },
+        {
+            "name": "Community contributions",
+            "homepage": "https://github.com/toaotc/ToaAddressbookBundle/contributors"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Toa\\Bundle\\ToaAddressbookBundle": "" }
+    },
+    "target-dir": "Toa/Bundle/ToaAddressbookBundle"
+}
