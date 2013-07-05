@@ -6,7 +6,8 @@ use Toa\Bundle\AddressbookBundle\Model\AbstractField;
 
 /**
  * Class Secondname
- * @package Toa\Bundle\AddressbookBundle\Model
+ *
+ * @author Enrico Thies <enrico.thies@gmail.com>
  */
 class Secondname extends AbstractField
 {

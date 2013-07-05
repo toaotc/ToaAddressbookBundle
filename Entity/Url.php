@@ -6,7 +6,8 @@ use Toa\Bundle\AddressbookBundle\Model\Url as BaseField;
 
 /**
  * Class Url
- * @package Toa\Bundle\AddressbookBundle\Entity
+ *
+ * @author Enrico Thies <enrico.thies@gmail.com>
  */
 class Url extends BaseField
 {

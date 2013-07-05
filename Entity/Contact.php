@@ -10,7 +10,8 @@ use Toa\Bundle\AddressbookBundle\Model\PostalAddress as BasePostalAddress;
 
 /**
  * Class Contact
- * @package Toa\Bundle\AddressbookBundle\Entity
+ *
+ * @author Enrico Thies <enrico.thies@gmail.com>
  */
 class Contact extends BaseContact
 {
@@ -25,6 +26,11 @@ class Contact extends BaseContact
         return $this->id;
     }
 
+    /**
+     * @param BaseEmail $email
+     *
+     * @return $this
+     */
     public function addEmail(BaseEmail $email)
     {
         $email->setContact($this);
@@ -32,6 +38,11 @@ class Contact extends BaseContact
         return parent::addEmail($email);
     }
 
+    /**
+     * @param BasePhoneNumber $email
+     *
+     * @return $this
+     */
     public function addPhoneNumber(BasePhoneNumber $email)
     {
         $email->setContact($this);
@@ -39,6 +50,11 @@ class Contact extends BaseContact
         return parent::addPhoneNumber($email);
     }
 
+    /**
+     * @param BaseUrl $url
+     *
+     * @return $this
+     */
     public function addUrl(BaseUrl $url)
     {
         $url->setContact($this);
@@ -46,6 +62,11 @@ class Contact extends BaseContact
         return parent::addUrl($url);
     }
 
+    /**
+     * @param BasePostalAddress $postalAddress
+     *
+     * @return $this
+     */
     public function addPostalAddress(BasePostalAddress $postalAddress)
     {
         $postalAddress->setContact($this);
@@ -53,6 +74,9 @@ class Contact extends BaseContact
         return parent::addPostalAddress($postalAddress);
     }
 
+    /**
+     * constructor
+     */
     public function __construct()
     {
         parent::__construct();

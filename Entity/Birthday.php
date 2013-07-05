@@ -6,7 +6,8 @@ use Toa\Bundle\AddressbookBundle\Model\Birthday as BaseField;
 
 /**
  * Class Birthday
- * @package Toa\Bundle\AddressbookBundle\Entity
+ *
+ * @author Enrico Thies <enrico.thies@gmail.com>
  */
 class Birthday extends BaseField
 {

@@ -6,7 +6,8 @@ use Toa\Bundle\AddressbookBundle\Model\Secondname as BaseField;
 
 /**
  * Class Secondname
- * @package Toa\Bundle\AddressbookBundle\Entity
+ *
+ * @author Enrico Thies <enrico.thies@gmail.com>
  */
 class Secondname extends BaseField
 {

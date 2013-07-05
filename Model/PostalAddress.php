@@ -4,7 +4,8 @@ namespace Toa\Bundle\AddressbookBundle\Model;
 
 /**
  * Class PostalAddress
- * @package Toa\Bundle\AddressbookBundle\Model
+ *
+ * @author Enrico Thies <enrico.thies@gmail.com>
  */
 class PostalAddress
 {

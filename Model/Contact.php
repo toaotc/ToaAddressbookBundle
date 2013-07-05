@@ -6,7 +6,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Class Contact
- * @package Toa\Bundle\AddressbookBundle\Model
+ *
+ * @author Enrico Thies <enrico.thies@gmail.com>
  */
 class Contact
 {
@@ -34,6 +35,9 @@ class Contact
     /** @var ArrayCollection */
     protected $postalAddresss;
 
+    /**
+     * constructor
+     */
     public function __construct()
     {
         $this->firstname = new Firstname();

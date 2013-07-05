@@ -14,19 +14,26 @@ use Toa\Bundle\AddressbookBundle\Entity\Url;
 
 /**
  * Class ContactTest
+ *
+ * @author Enrico Thies <enrico.thies@gmail.com>
  */
-class ContactTest extends \PHPUnit_Framework_TestCase {
-    private $em;
-
+class ContactTest extends \PHPUnit_Framework_TestCase
+{
     /** @var Contact $contact */
     private $contact;
 
+    /**
+     * {@inheritdoc}
+     */
     public function setUp()
     {
         $this->contact = new Contact();
     }
 
     /**
+     * @param string $property
+     * @param object $instance
+     *
      * @dataProvider adderFields
      */
     public function testAdder($property, $instance)
@@ -39,6 +46,9 @@ class ContactTest extends \PHPUnit_Framework_TestCase {
     }
 
     /**
+     * @param string $property
+     * @param object $instance
+     *
      * @dataProvider setterFields
      */
     public function testSetter($property, $instance)
@@ -51,6 +61,9 @@ class ContactTest extends \PHPUnit_Framework_TestCase {
         $this->assertSame($instance, $this->contact->$getter());
     }
 
+    /**
+     * @return array
+     */
     public function adderFields()
     {
         return array(
@@ -61,6 +74,9 @@ class ContactTest extends \PHPUnit_Framework_TestCase {
         );
     }
 
+    /**
+     * @return array
+     */
     public function setterFields()
     {
         return array(
